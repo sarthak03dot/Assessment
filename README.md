@@ -1,14 +1,5 @@
-# FULL STACK PROJECT
-
-- According to instructions (Move to sub Dir...)
-
-```bash
-bye bye
-```
-
-
 # WebHook Service
-# 🔁 Transaction Webhook Processing Service (Backend)
+# Transaction Webhook Processing Service (Backend)
 
 A **Django + Django REST Framework + Celery–based backend service** built as part of the **Fullstack Engineer Assessment**.
 
@@ -16,32 +7,31 @@ This service receives **transaction webhooks**, responds immediately with **202 
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-### 🔔 Webhook Handling
+###  Webhook Handling
 
 - Accepts transaction webhooks via REST API
 - Responds immediately with **202 Accepted**
 - Ensures response time under **500ms**
 
-### ⏳ Asynchronous Background Processing
+###  Asynchronous Background Processing
 
 - Uses **Celery** for background transaction processing
 - Simulates external API processing delay
 - Updates transaction status after processing
-
-### ♻️ Idempotency
+###  Idempotency
 
 - `transaction_id` is unique
 - Duplicate webhook calls are safely ignored
 - Prevents duplicate processing
 
-### 🗄 Persistent Storage
+###  Persistent Storage
 
 - Uses **SQLite** for persistence
 - Stores transaction details, status, and timestamps
 
-### 🩺 Health Check
+###  Health Check
 
 - Simple health endpoint to verify service availability
 
@@ -61,7 +51,7 @@ This service receives **transaction webhooks**, responds immediately with **202 
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```txt
 webhook_service/
