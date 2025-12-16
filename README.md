@@ -242,7 +242,7 @@ The application simulates a SaaS-style call analytics platform where users can v
 
 - Repository URL:
 ```bash
-  https://github.com/sarthak03dot/<repo-name>
+  https://github.com/sarthak03dot/Assessment
 ``` 
 
 
@@ -327,8 +327,8 @@ The application simulates a SaaS-style call analytics platform where users can v
 ### Setup Instructions
 **Clone the Repository**
 ```bash
-git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
+git clone https://github.com/sarthak03dot/Assessment.git
+cd Assessment
 ```
 **Install Dependencies**
 ```bash
