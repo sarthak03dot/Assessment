@@ -14,6 +14,22 @@ def health_check(request):
     return Response({"status": "HEALTHY", "current_time": timezone.now()})
 
 
+# @api_view(["POST"])
+# def webhook_transaction(request):
+#     serializer = TransactionSerializer(data=request.data)
+#     serializer.is_valid(raise_exception=True)
+
+#     txn, created = Transaction.objects.get_or_create(
+#         transaction_id=serializer.validated_data["transaction_id"],
+#         defaults=serializer.validated_data,
+#     )
+
+#     if created:
+#         process_transaction.delay(txn.transaction_id)
+
+#     return Response(status=202)
+
+
 @api_view(["POST"])
 def webhook_transaction(request):
     serializer = TransactionSerializer(data=request.data)
@@ -26,9 +42,21 @@ def webhook_transaction(request):
 
     if created:
         process_transaction.delay(txn.transaction_id)
+        message = "Transaction received and processing started"
+    else:
+        message = "Transaction already exists"
 
-    return Response(status=202)
-
+    return Response(
+        {
+            "success": True,
+            "transaction_id": txn.transaction_id,
+            "created": created,
+            "message": message,
+        },
+        status=202,
+    )
+    
+    
 
 @api_view(["GET"])
 def transaction_status(request, transaction_id):
